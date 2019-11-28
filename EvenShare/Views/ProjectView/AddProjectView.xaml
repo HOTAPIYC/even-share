@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EvenShare"
+             x:Class="EvenShare.AddProjectView"
+             Title="Add a new project">
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="48"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout 
+                Orientation="Vertical" 
+                Padding="18"
+                Grid.Row="0">
+                <Editor
+                    Placeholder="Enter a project title"
+                    AutoSize="TextChanges"
+                    Text="{Binding TitleInput}"/>
+                <Editor
+                    Placeholder="Enter a project member"
+                    AutoSize="TextChanges"
+                    Text="{Binding MemberInput}"/>
+                <Button
+                    Text="Add member"
+                    TextColor="White"
+                    BackgroundColor="Purple"             
+                    Command="{Binding AddMember}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Text="Create"
+                        TextColor="White"
+                        BackgroundColor="Purple"
+                        Grid.Column="0"
+                        Command="{Binding CreateNewProject}"/>
+                    <Button
+                        Text="Cancel"
+                        TextColor="White"
+                        BackgroundColor="Purple"
+                        Grid.Column="1"
+                        Command="{Binding GoToProjects}"/>
+                </Grid>
+                <BoxView 
+                    BackgroundColor="DarkGray" 
+                    HeightRequest="1" 
+                    HorizontalOptions="Fill"
+                    Margin="0,16,0,0"/>
+
+                <Label 
+                    Text="Current project members:"/>
+
+                <ListView ItemsSource="{Binding MemberList}" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Label
+                                    Text="{Binding Name}"
+                                    Margin="8,6,0,6"/>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            
+            <BoxView 
+                Grid.Row="1"
+                BackgroundColor="Purple"/>
+        </Grid>
+    </ContentPage.Content>
+    
+</ContentPage>

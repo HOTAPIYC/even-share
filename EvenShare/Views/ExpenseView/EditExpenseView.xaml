@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EvenShare"
+             x:Class="EvenShare.EditExpenseView"
+             Title="Edit an expense">
+ 
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="48"/>
+            </Grid.RowDefinitions>
+            
+            <StackLayout 
+                Orientation="Vertical" 
+                Padding="18"
+                Grid.Row="0">
+                <Editor
+                    Placeholder="Enter a name"
+                    Text="{Binding TitleInput}"/>
+                <Editor                
+                    Placeholder="Enter an amount"
+                    Text="{Binding AmountInput}"/>
+                <Picker
+                    Title="Choose a member"
+                    ItemsSource="{Binding MemberList}"
+                    SelectedIndex="{Binding SelectedIndexMember}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Text="Update"
+                        TextColor="White"
+                        BackgroundColor="Purple"
+                        Grid.Column="0"
+                        Command="{Binding UpdateExpense}"/>
+                    <Button
+                        Text="Cancel"
+                        TextColor="White"
+                        BackgroundColor="Purple"
+                        Grid.Column="1"
+                        Command="{Binding GoToExpenses}"/>
+                </Grid>
+            </StackLayout>
+
+            <BoxView 
+                Grid.Row="1"
+                BackgroundColor="Purple"/>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
