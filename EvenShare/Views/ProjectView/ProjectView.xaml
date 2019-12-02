@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EvenShare"
              x:Class="EvenShare.ProjectView"
              Title="Projects">
    
@@ -13,14 +14,15 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="96"/>
+                <ColumnDefinition Width="56"/>
+                <ColumnDefinition Width="16"/>
             </Grid.ColumnDefinitions>
 
             <ListView 
                 ItemsSource="{Binding ProjectList}" 
                 SelectedItem="{Binding SelectedItemProject}"
                 HasUnevenRows="True"
-                Grid.ColumnSpan="2"
+                Grid.ColumnSpan="3"
                 Grid.RowSpan="2"
                 Grid.Row="0">
                 <ListView.ItemTemplate>
@@ -50,7 +52,7 @@
             </ListView>
 
             <!--Bottom bar-->
-            <StackLayout Grid.Row="2" Grid.ColumnSpan="2" BackgroundColor="Purple" Orientation="Horizontal">
+            <StackLayout Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="Purple" Orientation="Horizontal">
                 <Button
                     FontFamily="{StaticResource MaterialIcons}"
                     FontSize="20"
@@ -87,7 +89,7 @@
                 Grid.RowSpan="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
-                <Button
+                <local:FabButton
                     FontFamily="{StaticResource MaterialIcons}"
                     FontSize="24"
                     Text="&#xF415;"
