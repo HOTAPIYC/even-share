@@ -31,7 +31,7 @@ namespace EvenShare
                 MembersSpending.Children.Add(label);
             }
 
-            foreach (string textline in _viewModel.Results)
+            foreach (string textline in _viewModel.Shares)
             {
                 var label = new Label();
                 label.Text = textline;

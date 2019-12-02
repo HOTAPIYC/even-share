@@ -93,12 +93,10 @@ namespace EvenShare
             {
                 if (TitleInput != null && MemberList.Count > 0)
                 {
-                    // Create a project
                     var project = new Project();
                     project.Title = TitleInput;
                     project.Timestamp = DateTime.Now.ToString();
 
-                    // Create info string
                     foreach (Member member in MemberList)
                     {
                         if (project.Members != null)
@@ -112,10 +110,8 @@ namespace EvenShare
 
                     }
 
-                    // Add project to the database
                     var projectID = await App.Database.AddProjectAsync(project);
 
-                    // Add members to the database
                     foreach (Member member in MemberList)
                     {
                         member.ProjectID = projectID;
@@ -142,7 +138,6 @@ namespace EvenShare
 
                     newProject.Title = TitleInput;
                     
-                    // Update info string and member database
                     foreach (Member member in MemberList)
                     {
                         if (newProject.Members != null)

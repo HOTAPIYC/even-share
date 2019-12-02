@@ -22,7 +22,7 @@ namespace EvenShare
         }
 
         public ObservableCollection<string> IndividualTotals { get; set; } = new ObservableCollection<string>();
-        public ObservableCollection<string> Results { get; set; } = new ObservableCollection<string>();
+        public ObservableCollection<string> Shares { get; set; } = new ObservableCollection<string>();
 
         public StatisticsViewModel(Project project)
         {
@@ -34,9 +34,13 @@ namespace EvenShare
             _expenseList = await App.Database.GetExpensesAsync(ProjectContext);
             _memberList = await App.Database.GetMembersAsync(ProjectContext);
 
+            // The statistic operations not only calculate display properties,
+            // they also work on properties of the listitems that are needed in
+            // different steps of the calculation. Therefore these lists can 
+            // not be handed over as inputs.
             Total = CalcTotal();
             IndividualTotals = CalcIndividualTotals();
-            Results = CalcShares();
+            Shares = CalcShares();
         }
 
         private int CalcTotal()
