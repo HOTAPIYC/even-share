@@ -1,24 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace EvenShare
 {
-    public class StatisticsViewModel : INotifyPropertyChanged
+    public class StatisticsViewModel : ViewModelBase
     {
-        private Project _projectContext;
-        private List<Member> _participants;
-        private List<Expense> _expenses;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        private List<Member> _memberList;
+        private List<Expense> _expenseList;
 
         private int _total;
         public int Total
@@ -31,101 +21,102 @@ namespace EvenShare
             }
         }
 
-        private ObservableCollection<string> _individualTotals;
-        public ObservableCollection<string> IndividualTotals
-        {
-            get => _individualTotals;
-            set
-            {
-                _individualTotals = value;
-                OnPropertyChanged("IndividualTotals");
-            }
-        }
-
-        private ObservableCollection<string> _results;
-        public ObservableCollection<string> Results
-        {
-            get => _results;
-            set
-            {
-                _results = value;
-                OnPropertyChanged("Results");
-            }
-        }
+        public ObservableCollection<string> IndividualTotals { get; set; } = new ObservableCollection<string>();
+        public ObservableCollection<string> Shares { get; set; } = new ObservableCollection<string>();
 
         public StatisticsViewModel(Project project)
         {
-            _projectContext = project;
+            ProjectContext = project;
         }
 
         public async Task Init()
         {                     
-            // Get current values from the database
-            _expenses = await App.Database.GetExpensesAsync(_projectContext);
-            _participants = await App.Database.GetMembersAsync(_projectContext);
+            _expenseList = await App.Database.GetExpensesAsync(ProjectContext);
+            _memberList = await App.Database.GetMembersAsync(ProjectContext);
 
-            // Calculate the total and add up how much everyone spent
-            foreach(Expense expense in _expenses)
+            // The statistic operations not only calculate display properties,
+            // they also work on properties of the listitems that are needed in
+            // different steps of the calculation. Therefore these lists can 
+            // not be handed over as inputs.
+            Total = CalcTotal();
+            IndividualTotals = CalcIndividualTotals();
+            Shares = CalcShares();
+        }
+
+        private int CalcTotal()
+        {
+            int total = 0;
+
+            foreach (Expense expense in _expenseList)
             {
-                Total = Total + expense.Amount;
-                
-                foreach (Member participant in _participants)
-                {                  
-                    if(expense.Member == participant.Name)
+                total = total + expense.Amount;
+            }
+
+            return total;
+        } 
+
+        private ObservableCollection<string> CalcIndividualTotals()
+        {
+            var individualTotals = new ObservableCollection<string>();
+
+            foreach (Member member in _memberList)
+            {
+                foreach(Expense expense in _expenseList)
+                {
+                    if (expense.Member == member.Name)
                     {
-                        _participants[_participants.IndexOf(participant)].PersonalTotal
-                            = _participants[_participants.IndexOf(participant)].PersonalTotal + expense.Amount;
-                    }                   
-                }            
+                        member.PersonalTotal = member.PersonalTotal + expense.Amount;
+                    }
+                }
+                
+                individualTotals.Add(member.Name + ": " + ((double)member.PersonalTotal / 100));
             }
 
-            // Create overview strings
-            IndividualTotals = new ObservableCollection<string>();
-            foreach (Member participant in _participants)
-            {
-                IndividualTotals.Add(participant.Name + ": " + ((double)participant.PersonalTotal / 100));
-            }
+            return individualTotals;
+        }
+
+        private ObservableCollection<string> CalcShares()
+        {
+            var shares = new ObservableCollection<string>();
 
             // Determine if person is in debt or not
             var debitors = new List<Member>();
             var creditors = new List<Member>();
 
-            foreach (Member participant in _participants)
+            foreach (Member member in _memberList)
             {
-                participant.DiffToEvenShare = participant.PersonalTotal - (Total / _participants.Count);
+                member.DiffToEvenShare = member.PersonalTotal - (Total / _memberList.Count);
 
-                if(participant.DiffToEvenShare > 0)
+                if (member.DiffToEvenShare > 0)
                 {
-                    creditors.Add(participant);
+                    creditors.Add(member);
                 }
                 else
                 {
-                    debitors.Add(participant);
+                    debitors.Add(member);
                 }
             }
 
             // Go through all creditors and debitors and determine share
-            Results = new ObservableCollection<string>();
-
-            while(creditors.Count > 0 && debitors.Count > 0)
+            while (creditors.Count > 0 && debitors.Count > 0)
             {
                 var creditor = creditors[0];
                 var debitor = debitors[0];
 
                 var diff = creditor.DiffToEvenShare + debitor.DiffToEvenShare;
 
-                if(diff == 0)
+                if (diff == 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(debitor.DiffToEvenShare)) / 100;
-                    Results.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
+                    shares.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
 
                     debitors.Remove(debitor);
                     creditors.Remove(creditor);
                 }
-                else if(diff > 0)
+                if (diff > 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(debitor.DiffToEvenShare)) / 100;
-                    Results.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
+                    shares.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
 
                     creditor.DiffToEvenShare = creditor.DiffToEvenShare + debitor.DiffToEvenShare;
 
@@ -133,10 +124,10 @@ namespace EvenShare
 
                     debitors.Remove(debitor);
                 }
-                else if (diff < 0)
+                if (diff < 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(creditor.DiffToEvenShare)) / 100;
-                    Results.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
+                    shares.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
 
                     debitor.DiffToEvenShare = debitor.DiffToEvenShare + creditor.DiffToEvenShare;
 
@@ -145,6 +136,8 @@ namespace EvenShare
                     creditors.Remove(creditor);
                 }
             }
+
+            return shares;
         }
     }
 }

@@ -21,7 +21,7 @@
                             Text="{Binding Total, Converter={StaticResource CentsToEuroConverter}}"/>
                     </StackLayout>
                     <StackLayout 
-                        x:Name="ParticipantsSpending"
+                        x:Name="MembersSpending"
                         Margin="18,16,18,0">
                         <BoxView
                             HeightRequest="1" 
@@ -32,7 +32,7 @@
                             Margin="0,0,0,5"/>
                     </StackLayout>
                     <StackLayout
-                        x:Name="ParticipantsShare"
+                        x:Name="MembersShare"
                         Margin="18,16,18,0">
                         <BoxView
                             HeightRequest="1" 

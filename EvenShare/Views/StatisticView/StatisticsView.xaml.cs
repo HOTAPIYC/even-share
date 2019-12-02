@@ -28,14 +28,14 @@ namespace EvenShare
             {
                 var label = new Label();
                 label.Text = textline;
-                ParticipantsSpending.Children.Add(label);
+                MembersSpending.Children.Add(label);
             }
 
-            foreach(string textline in _viewModel.Results)
+            foreach (string textline in _viewModel.Shares)
             {
                 var label = new Label();
                 label.Text = textline;
-                ParticipantsShare.Children.Add(label);
+                MembersShare.Children.Add(label);
             }
         }
     }
