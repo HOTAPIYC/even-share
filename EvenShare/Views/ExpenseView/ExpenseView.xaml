@@ -90,7 +90,7 @@
                 Grid.RowSpan="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
-                <Button
+                <local:FabButton
                     FontFamily="{StaticResource MaterialIcons}"
                     Padding="0"
                     FontSize="24"
@@ -109,7 +109,7 @@
                 Grid.RowSpan="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
-                <Button
+                <local:FabButton
                     FontFamily="{StaticResource MaterialIcons}"
                     FontSize="24"
                     Text="&#xF415;"
