@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace EvenShare
@@ -218,7 +219,7 @@ namespace EvenShare
             });
         }
 
-        public async void Init()
+        public async Task Init()
         {         
             var projects = await App.Database.GetProjectsAsync();
             foreach (Project project in projects)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace EvenShare
@@ -152,7 +153,7 @@ namespace EvenShare
             });
         }
 
-        public async void Init()
+        public async Task Init()
         {
             var expenses = await App.Database.GetExpensesAsync(ProjectContext);
             foreach (Expense expense in expenses)
