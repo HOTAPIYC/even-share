@@ -1,24 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-
 
 namespace EvenShare
 {
-    public class ExpenseViewModel : INotifyPropertyChanged
+    public class ExpenseViewModel : ViewModelBase
     {
-        private Project _projectContext;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public Command GoToAddExpense { get; }
         public Command GoToEditExpense { get; }
         public Command GoToStatistics { get; }
@@ -76,7 +63,7 @@ namespace EvenShare
 
         public ExpenseViewModel(Project project)
         {
-            _projectContext = project;
+            ProjectContext = project;
 
             GoToAddExpense = new Command(async () =>
             {
@@ -85,12 +72,12 @@ namespace EvenShare
 
             GoToStatistics = new Command(async () =>
             {
-                await Application.Current.MainPage.Navigation.PushAsync(new StatisticsView(new StatisticsViewModel(_projectContext)));
+                await Application.Current.MainPage.Navigation.PushAsync(new StatisticsView(new StatisticsViewModel(ProjectContext)));
             });
 
             GoToEditExpense = new Command(async () =>
             {
-                if(SelectedItemExpense != null)
+                if (SelectedItemExpense != null)
                 {
                     TitleInput = SelectedItemExpense.Title;
                     AmountInput = ((double)SelectedItemExpense.Amount / 100).ToString();
@@ -109,7 +96,7 @@ namespace EvenShare
 
             DeleteExpense = new Command(async () =>
             {
-                if(SelectedItemExpense != null)
+                if (SelectedItemExpense != null)
                 {
                     await App.Database.DeleteExpenseAsync(SelectedItemExpense);
                     ExpenseList.Remove(SelectedItemExpense);
@@ -125,7 +112,8 @@ namespace EvenShare
                     expense.Title = TitleInput;
                     expense.Amount = Convert.ToInt32(Math.Round(double.Parse(AmountInput.Replace(',', '.')) * 100, 0));
                     expense.Member = MemberList[SelectedIndexMember];
-                    expense.ProjectID = _projectContext.ID;
+                    expense.ProjectID = ProjectContext.ID;
+                    expense.Timestamp = DateTime.Now.ToString();
 
                     await App.Database.AddExpenseAsync(expense);
                     ExpenseList.Add(expense);
@@ -146,10 +134,11 @@ namespace EvenShare
 
                     newExpense.ID = SelectedItemExpense.ID;
                     newExpense.ProjectID = SelectedItemExpense.ProjectID;
+                    newExpense.Timestamp = SelectedItemExpense.Timestamp;
 
                     newExpense.Title = TitleInput;
                     newExpense.Amount = Convert.ToInt32(Math.Round(double.Parse(AmountInput.Replace(',', '.')) * 100, 0));
-                    newExpense.Member = MemberList[SelectedIndexMember];                  
+                    newExpense.Member = MemberList[SelectedIndexMember];
 
                     await App.Database.UpdateExpenseAsync(newExpense);
 
@@ -163,15 +152,15 @@ namespace EvenShare
             });
         }
 
-        public async Task Init()
+        public async void Init()
         {
-            var expenses = await App.Database.GetExpensesAsync(_projectContext);
+            var expenses = await App.Database.GetExpensesAsync(ProjectContext);
             foreach (Expense expense in expenses)
             {
                 ExpenseList.Add(expense);
             }
             
-            var projectMembers = await App.Database.GetMembersAsync(_projectContext);
+            var projectMembers = await App.Database.GetMembersAsync(ProjectContext);
             foreach (Member member in projectMembers)
             {
                 MemberList.Add(member.Name);

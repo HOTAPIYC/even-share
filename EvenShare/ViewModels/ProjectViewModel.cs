@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace EvenShare
 {
-    public class ProjectViewModel : INotifyPropertyChanged
+    public class ProjectViewModel : ViewModelBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public Command GoToAddProject { get; }
         public Command GoToEditProject { get; }
         public Command GoToProjects { get; }
@@ -82,14 +72,14 @@ namespace EvenShare
 
             GoToEditProject = new Command(async () =>
             {
-                if(SelectedItemProject != null)
+                if (SelectedItemProject != null)
                 {
                     TitleInput = SelectedItemProject.Title;
 
                     MemberList.Clear();
 
                     var projectMembers = await App.Database.GetMembersAsync(SelectedItemProject);
-                    foreach(Member member in projectMembers)
+                    foreach (Member member in projectMembers)
                     {
                         MemberList.Add(member);
                     }
@@ -163,7 +153,7 @@ namespace EvenShare
                             newProject.Members = member.Name;
                         }
 
-                        if(!await App.Database.MemberExists(member))
+                        if (!await App.Database.MemberExists(member))
                         {
                             member.ProjectID = SelectedItemProject.ID;
                             await App.Database.AddMemberAsync(member);
@@ -183,7 +173,7 @@ namespace EvenShare
 
             OpenProject = new Command(async () =>
             {
-                if(SelectedItemProject != null)
+                if (SelectedItemProject != null)
                 {
                     var expenseViewModel = new ExpenseViewModel(SelectedItemProject);
                     await Application.Current.MainPage.Navigation.PushAsync(new ExpenseView(expenseViewModel));
@@ -209,7 +199,7 @@ namespace EvenShare
 
             AddMember = new Command(() =>
             {
-                if(MemberInput != null && MemberInput != "")
+                if (MemberInput != null && MemberInput != "")
                 {
                     var member = new Member();
                     member.Name = MemberInput;
@@ -220,7 +210,7 @@ namespace EvenShare
 
             DeleteMember = new Command(async () =>
             {
-                if(SelectedItemMember != null)
+                if (SelectedItemMember != null)
                 {
                     MemberList.Remove(SelectedItemMember);
                     await App.Database.DeleteMembersAsync(SelectedItemMember, SelectedItemProject);
@@ -228,10 +218,10 @@ namespace EvenShare
             });
         }
 
-        public async Task Init()
+        public async void Init()
         {         
             var projects = await App.Database.GetProjectsAsync();
-            foreach(Project project in projects)
+            foreach (Project project in projects)
             {
                 ProjectList.Add(project);
             }

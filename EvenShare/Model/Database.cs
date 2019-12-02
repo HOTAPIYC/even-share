@@ -33,6 +33,7 @@ namespace EvenShare
             }
             catch
             {
+                // Error
                 return await Task.FromResult(new List<Project>());
             }
         }
@@ -100,6 +101,7 @@ namespace EvenShare
             }
             catch
             {
+                // Error
                 return await Task.FromResult(new List<Expense>());
             }
         }
@@ -148,6 +150,7 @@ namespace EvenShare
             }
             catch
             {
+                // Error
                 return await Task.FromResult(new List<Member>());
             }
         }
@@ -195,8 +198,8 @@ namespace EvenShare
             }
             catch
             {
-                return false;
                 // Error
+                return false;              
             }
         }
     }

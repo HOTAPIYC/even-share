@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
@@ -22,7 +16,7 @@ namespace EvenShare
 
             BindingContext = _viewModel;
 
-            Task.Run(async () => { await _viewModel.Init(); }).Wait();
+            _viewModel.Init();
         }
     }
 }
