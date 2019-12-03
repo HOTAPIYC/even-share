@@ -10,6 +10,7 @@ namespace EvenShare
         public Command GoToAddProject { get; }
         public Command GoToEditProject { get; }
         public Command GoToProjects { get; }
+        public Command GoToAboutPage { get; }
         public Command CreateNewProject { get; }
         public Command UpdateProject { get; }
         public Command OpenProject { get; }
@@ -211,6 +212,11 @@ namespace EvenShare
                     MemberList.Remove(SelectedItemMember);
                     await App.Database.DeleteMembersAsync(SelectedItemMember, SelectedItemProject);
                 }
+            });
+
+            GoToAboutPage = new Command(async () =>
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new AboutView());
             });
         }
 

@@ -4,7 +4,12 @@
              xmlns:local="clr-namespace:EvenShare"
              x:Class="EvenShare.ProjectView"
              Title="Projects">
-   
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="About"
+            Order="Secondary"
+            Command="{Binding GoToAboutPage}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -17,7 +22,7 @@
                 <ColumnDefinition Width="56"/>
                 <ColumnDefinition Width="16"/>
             </Grid.ColumnDefinitions>
-
+            <!--Main Content-->
             <ListView 
                 ItemsSource="{Binding ProjectList}" 
                 SelectedItem="{Binding SelectedItemProject}"
@@ -50,7 +55,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
             <!--Bottom bar-->
             <StackLayout Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="Purple" Orientation="Horizontal">
                 <Button
@@ -81,7 +85,6 @@
                     BackgroundColor="Transparent"
                     Command="{Binding OpenProject}"/>
             </StackLayout>
-
             <!--FAB-->
             <StackLayout
                 Grid.Column="1"
@@ -100,8 +103,6 @@
                     BackgroundColor="Red"
                     Command="{Binding GoToAddProject}"/>
             </StackLayout>
-
         </Grid>
     </ContentPage.Content>
-
 </ContentPage>

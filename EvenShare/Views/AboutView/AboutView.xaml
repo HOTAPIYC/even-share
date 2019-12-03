@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EvenShare.AboutView"
+             Title="About">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="48"/>
+            </Grid.RowDefinitions>
+            <ScrollView Grid.Row="0">
+                <StackLayout Margin="18,16,18,0">
+                    <Label 
+                        Text="Version 1.0.0"
+                        FontSize="Medium"
+                        Margin="0,0,0,5"/>
+                    <Label
+                        Text="This is a simple app to keep track of who ows whom how much when people put money together to do something."/>
+                    <Label
+                        Text="It was put together in a personal attempt to learn something - the code is open source and can be viewed and taken from my GitHub repository."/>
+                </StackLayout>
+            </ScrollView>
+            <BoxView 
+                Grid.Row="1"
+                BackgroundColor="Purple"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
