@@ -35,8 +35,6 @@ namespace EvenShare.Droid.CustomRenderers
 
             if (toolbar != null)
             {
-                //toolbar.Title = "返回";
-
                 for (int index = 0; index < toolbar.ChildCount; index++)
                 {
                     if (toolbar.GetChildAt(index) is TextView)
@@ -52,7 +50,13 @@ namespace EvenShare.Droid.CustomRenderers
                             toolbar.NavigationIcon.SetColorFilter(
                                 Android.Graphics.Color.Black,
                                 Android.Graphics.PorterDuff.Mode.SrcAtop);
-                        }                     
+                        }
+                        if (toolbar.OverflowIcon != null)
+                        {
+                            toolbar.OverflowIcon.SetColorFilter(
+                                Android.Graphics.Color.Black,
+                                Android.Graphics.PorterDuff.Mode.SrcAtop);
+                        }
                     }
                 }              
             }
