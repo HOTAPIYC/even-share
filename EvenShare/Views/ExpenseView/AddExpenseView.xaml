@@ -4,14 +4,13 @@
              xmlns:local="clr-namespace:EvenShare"
              x:Class="EvenShare.AddExpenseView"
              Title="Add a new expense">
- 
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="48"/>
             </Grid.RowDefinitions>
-
+            <!--Main Content-->
             <StackLayout 
                 Orientation="Vertical" 
                 Padding="18"
@@ -34,7 +33,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
                     <Button
                         Text="Add"
                         TextColor="White"
@@ -49,11 +47,8 @@
                         Command="{Binding GoToExpenses}"/>
                 </Grid>
             </StackLayout>
-
-            <BoxView 
-                Grid.Row="1"
-                BackgroundColor="Purple"/>
+            <!--Bottom bar-->
+            <Frame Grid.Row="1" BackgroundColor="Purple" HasShadow="True" Padding="0"/>
         </Grid>
     </ContentPage.Content>
-
 </ContentPage>

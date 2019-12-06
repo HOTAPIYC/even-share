@@ -29,6 +29,7 @@
     <item name="android:colorFocusedHighlight">@color/colorHighlightGray</item>
     <item name="android:colorActivatedHighlight">@color/colorHighlightGray</item>
     <item name="android:activatedBackgroundIndicator">@color/colorHighlightGray</item>
+
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">

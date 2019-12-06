@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:EvenShare"
+             xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
              x:Class="EvenShare.ProjectView"
              Title="Projects">
     <ContentPage.ToolbarItems>
@@ -34,57 +34,62 @@
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
-                                <StackLayout 
-                                    Orientation="Vertical" 
-                                    Margin="10,10" 
-                                    Spacing="0">
-                                    <Label 
-                                        Text="{Binding Title}" 
-                                        Margin="8,0,8,3"/>
-                                    <Label 
-                                        Text="{Binding Members}"
-                                        FontSize="Caption"
-                                        Margin="8,3,8,6"/>
-                                    <BoxView 
-                                        HeightRequest="1" 
-                                        Color="Black" 
-                                        Margin="8,0" />
-                                </StackLayout>
+                                <Frame HasShadow="True" Margin="8" Padding="0">
+                                    <StackLayout Orientation="Vertical" Margin="8" Spacing="0">
+                                        <Label 
+                                            Text="{Binding Title}" 
+                                            TextColor="Black"
+                                            FontAttributes="Bold"
+                                            Margin="8,0,8,3"/>
+                                        <Label 
+                                            Text="{Binding Members}"
+                                            FontSize="Caption"
+                                            TextColor="DarkGray"
+                                            Margin="8,3,8,6"/>
+                                        <BoxView 
+                                            HeightRequest="1" 
+                                            Color="DarkGray" 
+                                            Margin="8,0" />
+                                    </StackLayout>
+                                </Frame>
+
                             </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <!--Bottom bar-->
-            <StackLayout Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="Purple" Orientation="Horizontal">
-                <Button
-                    FontFamily="{StaticResource MaterialIcons}"
-                    FontSize="20"
-                    Text="&#xF1C0;"
-                    TextColor="White"
-                    HeightRequest="48"
-                    WidthRequest="48"
-                    BackgroundColor="Transparent"
-                    Command="{Binding DeleteProject}"/>
-                <Button
-                    FontFamily="{StaticResource MaterialIcons}"
-                    FontSize="20"
-                    Text="&#xF3EB;"
-                    TextColor="White"
-                    HeightRequest="48"
-                    WidthRequest="48"
-                    BackgroundColor="Transparent"
-                    Command="{Binding GoToEditProject}"/>
-                <Button
-                    FontFamily="{StaticResource MaterialIcons}"
-                    FontSize="20"
-                    Text="&#xFDAB;"
-                    TextColor="White"
-                    HeightRequest="48"
-                    WidthRequest="48"
-                    BackgroundColor="Transparent"
-                    Command="{Binding OpenProject}"/>
-            </StackLayout>
+            <Frame Grid.Row="2" Grid.ColumnSpan="3" HasShadow="True" BackgroundColor="Purple" Padding="0">
+                <StackLayout Orientation="Horizontal">
+                    <Button
+                        FontFamily="{StaticResource MaterialIcons}"
+                        FontSize="20"
+                        Text="&#xF1C0;"
+                        TextColor="White"
+                        HeightRequest="48"
+                        WidthRequest="48"
+                        BackgroundColor="Transparent"
+                        Command="{Binding DeleteProject}"/>
+                    <Button
+                        FontFamily="{StaticResource MaterialIcons}"
+                        FontSize="20"
+                        Text="&#xF3EB;"
+                        TextColor="White"
+                        HeightRequest="48"
+                        WidthRequest="48"
+                        BackgroundColor="Transparent"
+                        Command="{Binding GoToEditProject}"/>
+                    <Button
+                        FontFamily="{StaticResource MaterialIcons}"
+                        FontSize="20"
+                        Text="&#xF76F;"
+                        TextColor="White"
+                        HeightRequest="48"
+                        WidthRequest="48"
+                        BackgroundColor="Transparent"
+                        Command="{Binding OpenProject}"/>
+                </StackLayout>
+            </Frame>
             <!--FAB-->
             <StackLayout
                 Grid.Column="1"
@@ -92,15 +97,13 @@
                 Grid.RowSpan="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center">
-                <local:FabButton
-                    FontFamily="{StaticResource MaterialIcons}"
-                    FontSize="24"
-                    Text="&#xF415;"
-                    TextColor="White"
-                    CornerRadius="28"
+                <fab:FloatingActionButtonView
+                    ImageName="ic_add.png"
+                    ColorNormal="Red"
+                    ColorPressed="Crimson"
+                    ColorRipple="DarkRed"
                     HeightRequest="56"
                     WidthRequest="56"
-                    BackgroundColor="Red"
                     Command="{Binding GoToAddProject}"/>
             </StackLayout>
         </Grid>

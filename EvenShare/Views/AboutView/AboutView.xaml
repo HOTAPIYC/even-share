@@ -9,6 +9,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="48"/>
             </Grid.RowDefinitions>
+            <!--Main content-->
             <ScrollView Grid.Row="0">
                 <StackLayout Margin="18,16,18,0">
                     <Label 
@@ -21,9 +22,8 @@
                         Text="It was put together in a personal attempt to learn something - the code is open source and can be viewed and taken from my GitHub repository."/>
                 </StackLayout>
             </ScrollView>
-            <BoxView 
-                Grid.Row="1"
-                BackgroundColor="Purple"/>
+            <!--Bottom bar-->
+            <Frame Grid.Row="1" BackgroundColor="Purple" HasShadow="True" Padding="0"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
