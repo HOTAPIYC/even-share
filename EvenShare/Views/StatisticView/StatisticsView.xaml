@@ -16,10 +16,12 @@
                     <StackLayout Margin="18,16,18,0">
                         <Label 
                             Text="Total"
-                            FontSize="Medium"
+                            FontSize="22"
+                            FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                         <Label
-                            Text="{Binding Total, Converter={StaticResource CentsToEuroConverter}}"/>
+                            Text="{Binding Total, Converter={StaticResource CentsToEuroConverter}}"
+                            FontSize="17"/>
                     </StackLayout>
                     <StackLayout 
                         x:Name="MembersSpending"
@@ -29,7 +31,8 @@
                             Color="DarkGray"/>
                         <Label 
                             Text="Individual spendings"
-                            FontSize="Medium"
+                            FontSize="22"
+                            FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                     </StackLayout>
                     <StackLayout
@@ -40,7 +43,8 @@
                             Color="DarkGray"/>
                         <Label 
                             Text="Even shares"
-                            FontSize="Medium"
+                            FontSize="22"
+                            FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                     </StackLayout>
                 </StackLayout>

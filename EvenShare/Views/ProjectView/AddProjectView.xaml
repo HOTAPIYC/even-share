@@ -56,7 +56,7 @@
                     Margin="0,16,0,8"/>
                 <Label 
                     Text="Current project members:"
-                    FontSize="Medium"
+                    FontSize="17"
                     Margin="0,0,0,8"/>
                 <ListView 
                     ItemsSource="{Binding MemberList}" 
@@ -66,13 +66,13 @@
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <StackLayout BackgroundColor="Gray" Padding="4">
+                                    <StackLayout BackgroundColor="Gray" Margin="8">
                                         <Label
                                             Text="{Binding Name}"
-                                            FontSize="Medium"
+                                            TextColor="White"
+                                            FontSize="17"
                                             Margin="8"/>
                                     </StackLayout>
-                                    
                                 </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>

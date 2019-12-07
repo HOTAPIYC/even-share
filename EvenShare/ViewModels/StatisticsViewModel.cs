@@ -69,7 +69,7 @@ namespace EvenShare
                     }
                 }
                 
-                individualTotals.Add(member.Name + ": " + ((double)member.PersonalTotal / 100));
+                individualTotals.Add(member.Name + ": " + ((double)member.PersonalTotal / 100).ToString().Replace(",","."));
             }
 
             return individualTotals;
@@ -108,7 +108,7 @@ namespace EvenShare
                 if (diff == 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(debitor.DiffToEvenShare)) / 100;
-                    shares.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
+                    shares.Add(debitor.Name + " ows " + debt.ToString().Replace(",", ".") + " to " + creditor.Name);
 
                     debitors.Remove(debitor);
                     creditors.Remove(creditor);
@@ -116,7 +116,7 @@ namespace EvenShare
                 if (diff > 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(debitor.DiffToEvenShare)) / 100;
-                    shares.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
+                    shares.Add(debitor.Name + " ows " + debt.ToString().Replace(",", ".") + " to " + creditor.Name);
 
                     creditor.DiffToEvenShare = creditor.DiffToEvenShare + debitor.DiffToEvenShare;
 
@@ -127,7 +127,7 @@ namespace EvenShare
                 if (diff < 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(creditor.DiffToEvenShare)) / 100;
-                    shares.Add(debitor.Name + " ows " + debt.ToString() + " to " + creditor.Name);
+                    shares.Add(debitor.Name + " ows " + debt.ToString().Replace(",", ".") + " to " + creditor.Name);
 
                     debitor.DiffToEvenShare = debitor.DiffToEvenShare + creditor.DiffToEvenShare;
 

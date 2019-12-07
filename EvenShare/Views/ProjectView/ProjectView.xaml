@@ -38,12 +38,13 @@
                                     <StackLayout Orientation="Vertical" Margin="8" Spacing="0">
                                         <Label 
                                             Text="{Binding Title}" 
+                                            FontSize="17"
                                             TextColor="Black"
                                             FontAttributes="Bold"
                                             Margin="8,0,8,3"/>
                                         <Label 
                                             Text="{Binding Members}"
-                                            FontSize="Caption"
+                                            FontSize="14"
                                             TextColor="DarkGray"
                                             Margin="8,3,8,6"/>
                                         <BoxView 

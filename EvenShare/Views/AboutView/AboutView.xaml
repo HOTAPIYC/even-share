@@ -14,12 +14,15 @@
                 <StackLayout Margin="18,16,18,0">
                     <Label 
                         Text="Version 1.0.0"
-                        FontSize="Medium"
+                        FontSize="22"
+                        FontAttributes="Bold"
                         Margin="0,0,0,5"/>
                     <Label
-                        Text="This is a simple app to keep track of who ows whom how much when people put money together to do something."/>
+                        Text="This is a simple app to keep track of who ows whom how much when people put money together to do something."
+                        FontSize="17"/>
                     <Label
-                        Text="It was put together in a personal attempt to learn something - the code is open source and can be viewed and taken from my GitHub repository."/>
+                        Text="The application was created in a personal attempt to learn building apps with Xamarin - the code is open source and can be viewed and taken from my GitHub repository."
+                        FontSize="17"/>
                 </StackLayout>
             </ScrollView>
             <!--Bottom bar-->

@@ -40,12 +40,14 @@
                                             </Grid.ColumnDefinitions>
                                             <Label                                              
                                                 Text="{Binding Title}"
+                                                FontSize="17"
                                                 TextColor="Black"
                                                 FontAttributes="Bold"
                                                 Margin="8,0,2,0"
                                                 Grid.Column="0"/>
                                             <Label 
                                                 Text="{Binding Amount, Converter={StaticResource CentsToEuroConverter}}" 
+                                                FontSize="17"
                                                 TextColor="Black"
                                                 FontAttributes="Bold"
                                                 Margin="0,0,8,0"
@@ -53,7 +55,7 @@
                                         </Grid>
                                         <Label 
                                             Text="{Binding Member}" 
-                                            FontSize="Caption"
+                                            FontSize="14"
                                             TextColor="DarkGray"
                                             Margin="8,4,0,6"/>
                                         <BoxView 
