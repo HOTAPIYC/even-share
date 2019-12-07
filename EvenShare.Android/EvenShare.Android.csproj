@@ -66,6 +66,7 @@
     <Compile Include="CustomRenderers\NavigationPageRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\materialdesignicons-webfont.ttf" />
@@ -91,7 +92,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\splash_background.xml" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EvenShare\EvenShare.csproj">
       <Project>{677C372E-E8D3-44A9-950A-852658B9A7B8}</Project>
@@ -123,7 +126,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_chart_timeline_variant_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\actionbar_shadow.xml" />
+    <AndroidResource Include="Resources\drawable\splash_text.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
