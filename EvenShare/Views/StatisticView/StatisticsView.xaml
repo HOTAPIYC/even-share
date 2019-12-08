@@ -10,15 +10,18 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="48"/>
             </Grid.RowDefinitions>
+            <!--Main Content-->
             <ScrollView Grid.Row="0">
                 <StackLayout>
                     <StackLayout Margin="18,16,18,0">
                         <Label 
                             Text="Total"
-                            FontSize="Medium"
+                            FontSize="22"
+                            FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                         <Label
-                            Text="{Binding Total, Converter={StaticResource CentsToEuroConverter}}"/>
+                            Text="{Binding Total, Converter={StaticResource CentsToEuroConverter}}"
+                            FontSize="17"/>
                     </StackLayout>
                     <StackLayout 
                         x:Name="MembersSpending"
@@ -28,7 +31,8 @@
                             Color="DarkGray"/>
                         <Label 
                             Text="Individual spendings"
-                            FontSize="Medium"
+                            FontSize="22"
+                            FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                     </StackLayout>
                     <StackLayout
@@ -39,23 +43,19 @@
                             Color="DarkGray"/>
                         <Label 
                             Text="Even shares"
-                            FontSize="Medium"
+                            FontSize="22"
+                            FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
-
-            <BoxView 
-                Grid.Row="1"
-                BackgroundColor="Purple"/>
+            <!--Bottom bar-->
+            <Frame Grid.Row="1" BackgroundColor="Purple" HasShadow="True" Padding="0"/>
         </Grid>
-
     </ContentPage.Content>
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:CentsToEuroConverter x:Key="CentsToEuroConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-    
 </ContentPage>

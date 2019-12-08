@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-
   <style name="MainTheme" parent="MainTheme.Base">
   </style>
   <!-- Base theme applied no matter what API -->
@@ -28,10 +27,16 @@
     <item name="android:colorLongPressedHighlight">@color/colorHighlightGray</item>
     <item name="android:colorFocusedHighlight">@color/colorHighlightGray</item>
     <item name="android:colorActivatedHighlight">@color/colorHighlightGray</item>
-    <item name="android:activatedBackgroundIndicator">@color/colorHighlightGray</item>
+    <item name="android:activatedBackgroundIndicator">@color/colorHighlightGray</item>   
   </style>
-
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
     <item name="colorAccent">#FF4081</item>
+  </style>
+  <style name="MyTheme.Splash" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_background</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+    <item name="android:windowActionBar">true</item>
+    <item name="android:windowContentOverlay">@null</item>
   </style>
 </resources>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -111,7 +112,11 @@ namespace EvenShare
                     var expense = new Expense();
 
                     expense.Title = TitleInput;
-                    expense.Amount = Convert.ToInt32(Math.Round(double.Parse(AmountInput.Replace(',', '.')) * 100, 0));
+
+                    var decimalStyle = new CultureInfo("en-US");
+                    decimalStyle.NumberFormat.NumberDecimalSeparator = ".";
+
+                    expense.Amount = Convert.ToInt32(Math.Round(double.Parse(AmountInput.Replace(',', '.'), decimalStyle) * 100, 0));
                     expense.Member = MemberList[SelectedIndexMember];
                     expense.ProjectID = ProjectContext.ID;
                     expense.Timestamp = DateTime.Now.ToString();
@@ -138,7 +143,11 @@ namespace EvenShare
                     newExpense.Timestamp = SelectedItemExpense.Timestamp;
 
                     newExpense.Title = TitleInput;
-                    newExpense.Amount = Convert.ToInt32(Math.Round(double.Parse(AmountInput.Replace(',', '.')) * 100, 0));
+
+                    var decimalStyle = new CultureInfo("en-US");
+                    decimalStyle.NumberFormat.NumberDecimalSeparator = ".";
+
+                    newExpense.Amount = Convert.ToInt32(Math.Round(double.Parse(AmountInput.Replace(',', '.'), decimalStyle) * 100, 0));
                     newExpense.Member = MemberList[SelectedIndexMember];
 
                     await App.Database.UpdateExpenseAsync(newExpense);

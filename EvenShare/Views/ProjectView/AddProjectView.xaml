@@ -4,14 +4,13 @@
              xmlns:local="clr-namespace:EvenShare"
              x:Class="EvenShare.AddProjectView"
              Title="Add a new project">
-    
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="48"/>
             </Grid.RowDefinitions>
-
+            <!--Main Content-->
             <StackLayout 
                 Orientation="Vertical" 
                 Padding="18"
@@ -37,7 +36,6 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-
                     <Button
                         Text="Create"
                         TextColor="White"
@@ -55,30 +53,34 @@
                     BackgroundColor="DarkGray" 
                     HeightRequest="1" 
                     HorizontalOptions="Fill"
-                    Margin="0,16,0,0"/>
-
+                    Margin="0,16,0,8"/>
                 <Label 
-                    Text="Current project members:"/>
-
-                <ListView ItemsSource="{Binding MemberList}" SelectionMode="None">
+                    Text="Current project members:"
+                    FontSize="17"
+                    Margin="0,0,0,8"/>
+                <ListView 
+                    ItemsSource="{Binding MemberList}" 
+                    SelectionMode="None"
+                    HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <ViewCell.View>
-                                    <Label
-                                    Text="{Binding Name}"
-                                    Margin="8,6,0,6"/>
+                                    <StackLayout BackgroundColor="Gray" Margin="8">
+                                        <Label
+                                            Text="{Binding Name}"
+                                            TextColor="White"
+                                            FontSize="17"
+                                            Margin="8"/>
+                                    </StackLayout>
                                 </ViewCell.View>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            
-            <BoxView 
-                Grid.Row="1"
-                BackgroundColor="Purple"/>
+            <!--Bottom bar-->
+            <Frame Grid.Row="1" BackgroundColor="Purple" HasShadow="True" Padding="0"/>
         </Grid>
     </ContentPage.Content>
-    
 </ContentPage>

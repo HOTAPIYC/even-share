@@ -28,6 +28,7 @@ namespace EvenShare
             {
                 var label = new Label();
                 label.Text = textline;
+                label.FontSize = 17;
                 MembersSpending.Children.Add(label);
             }
 
@@ -35,6 +36,7 @@ namespace EvenShare
             {
                 var label = new Label();
                 label.Text = textline;
+                label.FontSize = 17;
                 MembersShare.Children.Add(label);
             }
         }
