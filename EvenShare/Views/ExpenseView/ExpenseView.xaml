@@ -47,7 +47,7 @@
                                                 Margin="8,0,2,0"
                                                 Grid.Column="0"/>
                                             <Label 
-                                                Text="{Binding Amount, Converter={StaticResource CentsToEuroConverter}}" 
+                                                Text="{Binding Amount, Converter={StaticResource CentsToEuro}}" 
                                                 FontSize="17"
                                                 TextColor="Black"
                                                 FontAttributes="Bold"
@@ -130,7 +130,7 @@
     </ContentPage.Content>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:CentsToEuroConverter x:Key="CentsToEuroConverter" />
+            <local:CentsToEuro x:Key="CentsToEuro" />
         </ResourceDictionary>
     </ContentPage.Resources>
 </local:CustomContentPage>

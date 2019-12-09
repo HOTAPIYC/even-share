@@ -21,7 +21,7 @@
                             FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                         <Label
-                            Text="{Binding Total, Converter={StaticResource CentsToEuroConverter}}"
+                            Text="{Binding Total, Converter={StaticResource CentsToEuro}}"
                             FontSize="17"/>
                     </StackLayout>
                     <StackLayout 
@@ -56,7 +56,7 @@
     </ContentPage.Content>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:CentsToEuroConverter x:Key="CentsToEuroConverter" />
+            <local:CentsToEuro x:Key="CentsToEuro" />
         </ResourceDictionary>
     </ContentPage.Resources>
 </local:CustomContentPage>

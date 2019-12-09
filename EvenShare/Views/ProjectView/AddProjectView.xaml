@@ -18,10 +18,12 @@
                 Grid.Row="0">
                 <Editor
                     Placeholder="Enter a project title"
+                    FontSize="17"
                     AutoSize="TextChanges"
                     Text="{Binding TitleInput}"/>
                 <Editor
                     Placeholder="Enter a project member"
+                    FontSize="17"
                     AutoSize="TextChanges"
                     Text="{Binding MemberInput}"/>
                 <Button
