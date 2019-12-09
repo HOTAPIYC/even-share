@@ -1,10 +1,9 @@
-﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms.Xaml;
 
 namespace EvenShare
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditProjectView : ContentPage
+    public partial class EditProjectView : CustomContentPage
     {
         private ProjectViewModel _viewModel;
 
@@ -15,13 +14,17 @@ namespace EvenShare
             _viewModel = viewModel;
 
             BindingContext = _viewModel;
+
+            if (EnableBackButtonOverride)
+            {
+                CustomBackButtonAction = () => { GoBack(); };
+            }
         }
 
-        protected override bool OnBackButtonPressed()
+        private async void GoBack()
         {
             _viewModel.Reset();
-
-            return base.OnBackButtonPressed();
+            await Navigation.PopAsync(true);
         }
     }
 }

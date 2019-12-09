@@ -1,11 +1,10 @@
 ﻿using System.Threading.Tasks;
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ProjectView : ContentPage
+    public partial class ProjectView : CustomContentPage
     {
         private ProjectViewModel _viewModel;
 

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:EvenShare"
-             x:Class="EvenShare.StatisticsView"
-             Title="Balance">
+<local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:local="clr-namespace:EvenShare"
+                         x:Class="EvenShare.StatisticsView"
+                         EnableBackButtonOverride="True"
+                         Title="Balance">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -58,4 +59,4 @@
             <local:CentsToEuroConverter x:Key="CentsToEuroConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
-</ContentPage>
+</local:CustomContentPage>
