@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
@@ -17,6 +18,16 @@ namespace EvenShare
             BindingContext = _viewModel;
 
             Task.Run(async () => { await _viewModel.Init(); }).Wait();
+        }
+
+        private async void DeleteRequest(object sender, System.EventArgs e)
+        {
+            var answer = await DisplayAlert("", "Do you want to delete this project?", "DELETE", "CANCEL");
+
+            if (answer)
+            {
+                MessagingCenter.Send(this, "DeleteProject");
+            }
         }
     }
 }

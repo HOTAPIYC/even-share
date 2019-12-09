@@ -24,7 +24,13 @@ namespace EvenShare
 
         private async void GoBack()
         {
-            await Navigation.PopAsync(true);
+            var answer = await DisplayAlert("", "Do you want to go back without saving any changes?", "GO BACK", "CANCEL");
+
+            if (answer)
+            {
+                _viewModel.Reset();
+                await Navigation.PopAsync(true);
+            }
         }
     }
 }

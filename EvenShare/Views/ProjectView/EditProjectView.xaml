@@ -43,7 +43,7 @@
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="1"
-                        Command="{Binding DeleteMember}"/>
+                        Clicked="DeleteMemberRequest"/>
                 </Grid>
                 <Grid>
                     <Grid.RowDefinitions>

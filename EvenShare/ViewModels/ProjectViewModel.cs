@@ -14,9 +14,7 @@ namespace EvenShare
         public Command CreateNewProject { get; }
         public Command UpdateProject { get; }
         public Command OpenProject { get; }
-        public Command DeleteProject { get; }
         public Command AddMember { get; }
-        public Command DeleteMember { get; }
 
         private Project _selectedItemProject;
         public Project SelectedItemProject
@@ -90,6 +88,18 @@ namespace EvenShare
                 }
             });
 
+            GoToProjects = new Command(async () =>
+            {
+                Reset();
+
+                await Application.Current.MainPage.Navigation.PopAsync();
+            });
+
+            GoToAboutPage = new Command(async () =>
+            {
+                await Application.Current.MainPage.Navigation.PushAsync(new AboutView());
+            });
+
             CreateNewProject = new Command(async () =>
             {
                 if (TitleInput != null && MemberList.Count > 0)
@@ -132,13 +142,32 @@ namespace EvenShare
                 if (TitleInput != null && MemberList.Count > 0)
                 {
                     var index = ProjectList.IndexOf(SelectedItemProject);
-
                     var newProject = new Project();
 
                     newProject.ID = SelectedItemProject.ID;
-
                     newProject.Title = TitleInput;
-                    
+
+                    var oldMembers = await App.Database.GetMembersAsync(SelectedItemProject);
+
+                    foreach(Member oldMember in oldMembers)
+                    {
+                        bool isCurrentMember = false;
+
+                        foreach (Member currentMember in MemberList)
+                        {
+                            if (oldMember.ID == currentMember.ID)
+                            {
+                                isCurrentMember = true;
+                            }
+                        }
+                        
+                        if (!isCurrentMember)
+                        {
+                            await App.Database.DeleteMembersAsync(oldMember, SelectedItemProject);
+                        }
+                    }
+
+
                     foreach (Member member in MemberList)
                     {
                         if (newProject.Members != null)
@@ -177,23 +206,6 @@ namespace EvenShare
                 }
             });
 
-            DeleteProject = new Command(async () =>
-            {
-                if (SelectedItemProject != null)
-                {
-                    await App.Database.DeleteProjectAsync(SelectedItemProject);
-                    ProjectList.Remove(SelectedItemProject);
-                    SelectedItemProject = null;
-                }
-            });
-
-            GoToProjects = new Command(async () =>
-            {
-                Reset();
-
-                await Application.Current.MainPage.Navigation.PopAsync();              
-            });
-
             AddMember = new Command(() =>
             {
                 if (MemberInput != null && MemberInput != "")
@@ -205,18 +217,22 @@ namespace EvenShare
                 }
             });
 
-            DeleteMember = new Command(async () =>
+            MessagingCenter.Subscribe<ProjectView>(this, "DeleteProject", async (sender) =>
+            {
+                if (SelectedItemProject != null)
+                {
+                    await App.Database.DeleteProjectAsync(SelectedItemProject);
+                    ProjectList.Remove(SelectedItemProject);
+                    SelectedItemProject = null;
+                }
+            });
+
+            MessagingCenter.Subscribe<EditProjectView>(this, "DeleteMember", (sender) =>
             {
                 if (SelectedItemMember != null)
                 {
                     MemberList.Remove(SelectedItemMember);
-                    await App.Database.DeleteMembersAsync(SelectedItemMember, SelectedItemProject);
                 }
-            });
-
-            GoToAboutPage = new Command(async () =>
-            {
-                await Application.Current.MainPage.Navigation.PushAsync(new AboutView());
             });
         }
 

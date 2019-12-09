@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace EvenShare
 {
@@ -23,8 +24,23 @@ namespace EvenShare
 
         private async void GoBack()
         {
-            _viewModel.Reset();
-            await Navigation.PopAsync(true);
+            var answer = await DisplayAlert("", "Do you want to go back without saving any changes?", "GO BACK", "CANCEL");
+
+            if (answer)
+            {
+                _viewModel.Reset();
+                await Navigation.PopAsync(true);
+            }
+        }
+
+        private async void DeleteMemberRequest(object sender, System.EventArgs e)
+        {
+            var answer = await DisplayAlert("", "Do you want to delete this project member and all connected expenses?", "DELETE", "CANCEL");
+
+            if (answer)
+            {
+                MessagingCenter.Send(this, "DeleteMember");
+            }
         }
     }
 }

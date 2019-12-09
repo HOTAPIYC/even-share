@@ -81,7 +81,7 @@
                         HeightRequest="48"
                         WidthRequest="48"
                         BackgroundColor="Transparent"
-                        Command="{Binding DeleteExpense}"/>
+                        Clicked="DeleteRequest"/>
                     <Button
                         FontFamily="{StaticResource MaterialIcons}"
                         FontSize="20"

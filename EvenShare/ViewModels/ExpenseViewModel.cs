@@ -96,15 +96,6 @@ namespace EvenShare
                 Reset();
             });
 
-            DeleteExpense = new Command(async () =>
-            {
-                if (SelectedItemExpense != null)
-                {
-                    await App.Database.DeleteExpenseAsync(SelectedItemExpense);
-                    ExpenseList.Remove(SelectedItemExpense);
-                }
-            });
-
             CreateNewExpense = new Command(async () =>
             {
                 if (TitleInput != null && AmountInput != null && SelectedIndexMember >= 0)
@@ -158,6 +149,15 @@ namespace EvenShare
                     await Application.Current.MainPage.Navigation.PopAsync();
 
                     Reset();
+                }
+            });
+
+            MessagingCenter.Subscribe<ExpenseView>(this, "DeleteExpense", async (sender) =>
+            {
+                if (SelectedItemExpense != null)
+                {
+                    await App.Database.DeleteExpenseAsync(SelectedItemExpense);
+                    ExpenseList.Remove(SelectedItemExpense);
                 }
             });
         }

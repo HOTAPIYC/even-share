@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
@@ -27,6 +28,16 @@ namespace EvenShare
         private async void GoBack()
         {
             await Navigation.PopAsync(true);
+        }
+
+        private async void DeleteRequest(object sender, System.EventArgs e)
+        {
+            var answer = await DisplayAlert("", "Do you want to delete this expense?", "DELETE", "CANCEL");
+
+            if (answer)
+            {
+                MessagingCenter.Send(this, "DeleteExpense");
+            }
         }
     }
 }
