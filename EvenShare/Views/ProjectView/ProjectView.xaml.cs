@@ -24,9 +24,9 @@ namespace EvenShare
         {
             var answer = await DisplayAlert("", "Do you want to delete this project?", "DELETE", "CANCEL");
 
-            if (answer)
+            if (answer && _viewModel.DeleteProject.CanExecute(null))
             {
-                MessagingCenter.Send(this, "DeleteProject");
+                _viewModel.DeleteProject.Execute(null);
             }
         }
     }

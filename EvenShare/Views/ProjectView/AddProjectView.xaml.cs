@@ -22,6 +22,11 @@ namespace EvenShare
             }
         }
 
+        private void Cancel(object sender, System.EventArgs e)
+        {
+            GoBack();
+        }
+
         private async void GoBack()
         {
             var answer = await DisplayAlert("", "Do you want to go back without saving any changes?", "GO BACK", "CANCEL");

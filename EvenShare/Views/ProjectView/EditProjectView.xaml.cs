@@ -22,6 +22,11 @@ namespace EvenShare
             }
         }
 
+        private void Cancel(object sender, System.EventArgs e)
+        {
+            GoBack();
+        }
+
         private async void GoBack()
         {
             var answer = await DisplayAlert("", "Do you want to go back without saving any changes?", "GO BACK", "CANCEL");
@@ -37,9 +42,9 @@ namespace EvenShare
         {
             var answer = await DisplayAlert("", "Do you want to delete this project member and all connected expenses?", "DELETE", "CANCEL");
 
-            if (answer)
+            if (answer && _viewModel.DeleteMember.CanExecute(null))
             {
-                MessagingCenter.Send(this, "DeleteMember");
+                _viewModel.DeleteMember.Execute(null);
             }
         }
     }

@@ -4,7 +4,7 @@
       <color android:color="#e6e6e6"/>
     </item>
     <item>
-      <bitmap android:src="@drawable/splash_text"
+      <bitmap android:src="@drawable/splash_image"
               android:tileMode="disabled"
               android:gravity="center"/>  
     </item>

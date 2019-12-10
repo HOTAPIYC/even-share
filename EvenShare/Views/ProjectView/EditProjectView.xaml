@@ -64,7 +64,7 @@
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="1"
-                        Command="{Binding GoToProjects}"/>
+                        Clicked="Cancel"/>
                 </Grid>
                 <BoxView 
                     BackgroundColor="DarkGray" 

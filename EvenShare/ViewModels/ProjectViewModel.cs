@@ -9,12 +9,13 @@ namespace EvenShare
     {
         public Command GoToAddProject { get; }
         public Command GoToEditProject { get; }
-        public Command GoToProjects { get; }
         public Command GoToAboutPage { get; }
         public Command CreateNewProject { get; }
         public Command UpdateProject { get; }
+        public Command DeleteProject { get; }
         public Command OpenProject { get; }
         public Command AddMember { get; }
+        public Command DeleteMember { get; }
 
         private Project _selectedItemProject;
         public Project SelectedItemProject
@@ -86,13 +87,6 @@ namespace EvenShare
 
                     await Application.Current.MainPage.Navigation.PushAsync(new EditProjectView(this));
                 }
-            });
-
-            GoToProjects = new Command(async () =>
-            {
-                Reset();
-
-                await Application.Current.MainPage.Navigation.PopAsync();
             });
 
             GoToAboutPage = new Command(async () =>
@@ -217,7 +211,7 @@ namespace EvenShare
                 }
             });
 
-            MessagingCenter.Subscribe<ProjectView>(this, "DeleteProject", async (sender) =>
+            DeleteProject = new Command(async () =>
             {
                 if (SelectedItemProject != null)
                 {
@@ -227,7 +221,7 @@ namespace EvenShare
                 }
             });
 
-            MessagingCenter.Subscribe<EditProjectView>(this, "DeleteMember", (sender) =>
+            DeleteMember = new Command(() =>
             {
                 if (SelectedItemMember != null)
                 {

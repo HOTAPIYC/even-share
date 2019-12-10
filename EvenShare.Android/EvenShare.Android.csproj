@@ -126,7 +126,7 @@
     <AndroidResource Include="Resources\drawable-mdpi\ic_chart_timeline_variant_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\splash_text.png" />
+    <AndroidResource Include="Resources\drawable\splash_image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
