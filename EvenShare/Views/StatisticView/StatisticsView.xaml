@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:EvenShare"
-             x:Class="EvenShare.StatisticsView"
-             Title="Balance">
+<local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:local="clr-namespace:EvenShare"
+                         x:Class="EvenShare.StatisticsView"
+                         EnableBackButtonOverride="True"
+                         Title="Balance">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -20,7 +21,7 @@
                             FontAttributes="Bold"
                             Margin="0,0,0,5"/>
                         <Label
-                            Text="{Binding Total, Converter={StaticResource CentsToEuroConverter}}"
+                            Text="{Binding Total, Converter={StaticResource CentsToEuro}}"
                             FontSize="17"/>
                     </StackLayout>
                     <StackLayout 
@@ -55,7 +56,7 @@
     </ContentPage.Content>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:CentsToEuroConverter x:Key="CentsToEuroConverter" />
+            <local:CentsToEuro x:Key="CentsToEuro" />
         </ResourceDictionary>
     </ContentPage.Resources>
-</ContentPage>
+</local:CustomContentPage>

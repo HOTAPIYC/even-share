@@ -7714,7 +7714,7 @@ namespace EvenShare.Droid
 			public const int splash_background = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int splash_text = 2131165305;
+			public const int splash_image = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
 			public const int tooltip_frame_dark = 2131165306;

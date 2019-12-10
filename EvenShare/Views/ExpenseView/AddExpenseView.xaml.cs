@@ -4,7 +4,7 @@ using Xamarin.Forms.Xaml;
 namespace EvenShare
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddExpenseView : ContentPage
+    public partial class AddExpenseView : CustomContentPage
     {
         private ExpenseViewModel _viewModel;
 
@@ -15,6 +15,22 @@ namespace EvenShare
             _viewModel = viewModel;
 
             BindingContext = _viewModel;
+
+            if (EnableBackButtonOverride)
+            {
+                CustomBackButtonAction = () => { GoBack(); };
+            }
+        }
+
+        private async void GoBack()
+        {
+            var answer = await DisplayAlert("", "Do you want to go back without saving any changes?", "GO BACK", "CANCEL");
+
+            if (answer)
+            {
+                _viewModel.Reset();
+                await Navigation.PopAsync(true);
+            }
         }
     }
 }

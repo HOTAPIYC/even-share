@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace EvenShare
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StatisticsView : ContentPage
+    public partial class StatisticsView : CustomContentPage
     {
         private StatisticsViewModel _viewModel;
         
@@ -21,6 +21,11 @@ namespace EvenShare
             _viewModel = viewModel;
 
             BindingContext = _viewModel;
+
+            if (EnableBackButtonOverride)
+            {
+                CustomBackButtonAction = () => { GoBack(); };
+            }
 
             Task.Run(async () => { await _viewModel.Init(); }).Wait();
 
@@ -39,6 +44,11 @@ namespace EvenShare
                 label.FontSize = 17;
                 MembersShare.Children.Add(label);
             }
+        }
+
+        private async void GoBack()
+        {
+            await Navigation.PopAsync(true);
         }
     }
 }

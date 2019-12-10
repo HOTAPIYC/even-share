@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace EvenShare
 {
-    public class CentsToEuroConverter : IValueConverter
+    public class CentsToEuro : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

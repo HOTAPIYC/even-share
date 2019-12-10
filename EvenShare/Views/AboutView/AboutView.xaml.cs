@@ -10,13 +10,21 @@ using Xamarin.Forms.Xaml;
 namespace EvenShare
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AboutView : ContentPage
+    public partial class AboutView : CustomContentPage
     {
         public AboutView()
         {
             InitializeComponent();
 
-            Title = "About";
+            if (EnableBackButtonOverride)
+            {
+                CustomBackButtonAction = () => { GoBack(); };
+            }
+        }
+
+        private async void GoBack()
+        {
+            await Navigation.PopAsync(true);
         }
     }
 }

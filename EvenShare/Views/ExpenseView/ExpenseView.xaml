@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:EvenShare"
-             xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
-             x:Class="EvenShare.ExpenseView"
-             Title="Expenses">
+<local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:local="clr-namespace:EvenShare"
+                         xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
+                         x:Class="EvenShare.ExpenseView"
+                         EnableBackButtonOverride="True"
+                         Title="Expenses">
     <ContentPage.Content>
         <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -46,7 +47,7 @@
                                                 Margin="8,0,2,0"
                                                 Grid.Column="0"/>
                                             <Label 
-                                                Text="{Binding Amount, Converter={StaticResource CentsToEuroConverter}}" 
+                                                Text="{Binding Amount, Converter={StaticResource CentsToEuro}}" 
                                                 FontSize="17"
                                                 TextColor="Black"
                                                 FontAttributes="Bold"
@@ -80,7 +81,7 @@
                         HeightRequest="48"
                         WidthRequest="48"
                         BackgroundColor="Transparent"
-                        Command="{Binding DeleteExpense}"/>
+                        Clicked="DeleteRequest"/>
                     <Button
                         FontFamily="{StaticResource MaterialIcons}"
                         FontSize="20"
@@ -129,7 +130,7 @@
     </ContentPage.Content>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:CentsToEuroConverter x:Key="CentsToEuroConverter" />
+            <local:CentsToEuro x:Key="CentsToEuro" />
         </ResourceDictionary>
     </ContentPage.Resources>
-</ContentPage>
+</local:CustomContentPage>

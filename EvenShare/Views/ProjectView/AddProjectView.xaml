@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:EvenShare"
-             x:Class="EvenShare.AddProjectView"
-             Title="Add a new project">
+<local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:local="clr-namespace:EvenShare"
+                         x:Class="EvenShare.AddProjectView"
+                         EnableBackButtonOverride="True"
+                         Title="Add a new project">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -17,10 +18,12 @@
                 Grid.Row="0">
                 <Editor
                     Placeholder="Enter a project title"
+                    FontSize="17"
                     AutoSize="TextChanges"
                     Text="{Binding TitleInput}"/>
                 <Editor
                     Placeholder="Enter a project member"
+                    FontSize="17"
                     AutoSize="TextChanges"
                     Text="{Binding MemberInput}"/>
                 <Button
@@ -47,7 +50,7 @@
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="1"
-                        Command="{Binding GoToProjects}"/>
+                        Clicked="Cancel"/>
                 </Grid>
                 <BoxView 
                     BackgroundColor="DarkGray" 
@@ -83,4 +86,4 @@
             <Frame Grid.Row="1" BackgroundColor="Purple" HasShadow="True" Padding="0"/>
         </Grid>
     </ContentPage.Content>
-</ContentPage>
+</local:CustomContentPage>

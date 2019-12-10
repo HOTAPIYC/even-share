@@ -11,10 +11,9 @@ namespace EvenShare
         public Command GoToAddExpense { get; }
         public Command GoToEditExpense { get; }
         public Command GoToStatistics { get; }
-        public Command GoToExpenses { get; }
-        public Command DeleteExpense { get; }
         public Command CreateNewExpense { get; }
         public Command UpdateExpense { get; }
+        public Command DeleteExpense { get; }
 
         private string _titleInput;
         public string TitleInput
@@ -89,22 +88,6 @@ namespace EvenShare
                 }
             });
 
-            GoToExpenses = new Command(async () =>
-            {
-                await Application.Current.MainPage.Navigation.PopAsync();
-
-                Reset();
-            });
-
-            DeleteExpense = new Command(async () =>
-            {
-                if (SelectedItemExpense != null)
-                {
-                    await App.Database.DeleteExpenseAsync(SelectedItemExpense);
-                    ExpenseList.Remove(SelectedItemExpense);
-                }
-            });
-
             CreateNewExpense = new Command(async () =>
             {
                 if (TitleInput != null && AmountInput != null && SelectedIndexMember >= 0)
@@ -158,6 +141,15 @@ namespace EvenShare
                     await Application.Current.MainPage.Navigation.PopAsync();
 
                     Reset();
+                }
+            });
+
+            DeleteExpense = new Command(async () =>
+            {
+                if (SelectedItemExpense != null)
+                {
+                    await App.Database.DeleteExpenseAsync(SelectedItemExpense);
+                    ExpenseList.Remove(SelectedItemExpense);
                 }
             });
         }
