@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using EvenShare.Strings;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
@@ -29,7 +30,11 @@ namespace EvenShare
 
         private async void GoBack()
         {
-            var answer = await DisplayAlert("", "Do you want to go back without saving any changes?", "GO BACK", "CANCEL");
+            var answer = await DisplayAlert(
+                "", 
+                AppResources.DialogCancelEdit,
+                AppResources.DialogGoBack,
+                AppResources.DialogCancel);
 
             if (answer)
             {
@@ -40,7 +45,11 @@ namespace EvenShare
 
         private async void DeleteMemberRequest(object sender, System.EventArgs e)
         {
-            var answer = await DisplayAlert("", "Do you want to delete this project member and all connected expenses?", "DELETE", "CANCEL");
+            var answer = await DisplayAlert(
+                "",
+                AppResources.DialogDeleteMember,
+                AppResources.DialogDelete,
+                AppResources.DialogCancel);
 
             if (answer && _viewModel.DeleteMember.CanExecute(null))
             {

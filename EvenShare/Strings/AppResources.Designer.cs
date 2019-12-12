@@ -79,15 +79,6 @@ namespace EvenShare.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die About ähnelt.
-        /// </summary>
-        internal static string AboutTitle {
-            get {
-                return ResourceManager.GetString("AboutTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Version 1.0.0 ähnelt.
         /// </summary>
         internal static string AboutVersion {
@@ -97,7 +88,61 @@ namespace EvenShare.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die CANCEL ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add ähnelt.
+        /// </summary>
+        internal static string BtnAdd {
+            get {
+                return ResourceManager.GetString("BtnAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add member ähnelt.
+        /// </summary>
+        internal static string BtnAddMember {
+            get {
+                return ResourceManager.GetString("BtnAddMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
+        /// </summary>
+        internal static string BtnCancel {
+            get {
+                return ResourceManager.GetString("BtnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Create ähnelt.
+        /// </summary>
+        internal static string BtnCreate {
+            get {
+                return ResourceManager.GetString("BtnCreate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete member ähnelt.
+        /// </summary>
+        internal static string BtnDeleteMember {
+            get {
+                return ResourceManager.GetString("BtnDeleteMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Update ähnelt.
+        /// </summary>
+        internal static string BtnUpdate {
+            get {
+                return ResourceManager.GetString("BtnUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Cancel ähnelt.
         /// </summary>
         internal static string DialogCancel {
             get {
@@ -106,7 +151,16 @@ namespace EvenShare.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die DELETE ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to go back without saving any changes? ähnelt.
+        /// </summary>
+        internal static string DialogCancelEdit {
+            get {
+                return ResourceManager.GetString("DialogCancelEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Delete ähnelt.
         /// </summary>
         internal static string DialogDelete {
             get {
@@ -115,11 +169,182 @@ namespace EvenShare.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die GO BACK ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to delete this expense? ähnelt.
+        /// </summary>
+        internal static string DialogDeleteExpense {
+            get {
+                return ResourceManager.GetString("DialogDeleteExpense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to delete this project member and all connected expenses? ähnelt.
+        /// </summary>
+        internal static string DialogDeleteMember {
+            get {
+                return ResourceManager.GetString("DialogDeleteMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Do you want to delete this project? ähnelt.
+        /// </summary>
+        internal static string DialogDeleteProject {
+            get {
+                return ResourceManager.GetString("DialogDeleteProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Go back ähnelt.
         /// </summary>
         internal static string DialogGoBack {
             get {
                 return ResourceManager.GetString("DialogGoBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter an amount ähnelt.
+        /// </summary>
+        internal static string ExpenseAmountInputPh {
+            get {
+                return ResourceManager.GetString("ExpenseAmountInputPh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Choose a member ähnelt.
+        /// </summary>
+        internal static string ExpenseMemberInputPh {
+            get {
+                return ResourceManager.GetString("ExpenseMemberInputPh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter a name ähnelt.
+        /// </summary>
+        internal static string ExpenseNameInputPh {
+            get {
+                return ResourceManager.GetString("ExpenseNameInputPh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Current project members: ähnelt.
+        /// </summary>
+        internal static string LabelCurrentMembers {
+            get {
+                return ResourceManager.GetString("LabelCurrentMembers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die About ähnelt.
+        /// </summary>
+        internal static string PageTitleAbout {
+            get {
+                return ResourceManager.GetString("PageTitleAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add a new expense ähnelt.
+        /// </summary>
+        internal static string PageTitleAddExpense {
+            get {
+                return ResourceManager.GetString("PageTitleAddExpense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Add a new project ähnelt.
+        /// </summary>
+        internal static string PageTitleAddProject {
+            get {
+                return ResourceManager.GetString("PageTitleAddProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit an expense ähnelt.
+        /// </summary>
+        internal static string PageTitleEditExpense {
+            get {
+                return ResourceManager.GetString("PageTitleEditExpense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Edit a project ähnelt.
+        /// </summary>
+        internal static string PageTitleEditProject {
+            get {
+                return ResourceManager.GetString("PageTitleEditProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Expenses ähnelt.
+        /// </summary>
+        internal static string PageTitleExpenses {
+            get {
+                return ResourceManager.GetString("PageTitleExpenses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Projects ähnelt.
+        /// </summary>
+        internal static string PageTitleProjects {
+            get {
+                return ResourceManager.GetString("PageTitleProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Balance ähnelt.
+        /// </summary>
+        internal static string PageTitleStatistics {
+            get {
+                return ResourceManager.GetString("PageTitleStatistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter a project member ähnelt.
+        /// </summary>
+        internal static string ProjectMemberInputPh {
+            get {
+                return ResourceManager.GetString("ProjectMemberInputPh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Enter a project title ähnelt.
+        /// </summary>
+        internal static string ProjectTitleInputPh {
+            get {
+                return ResourceManager.GetString("ProjectTitleInputPh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  ows  ähnelt.
+        /// </summary>
+        internal static string StatisticsFrag1 {
+            get {
+                return ResourceManager.GetString("StatisticsFrag1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die  to  ähnelt.
+        /// </summary>
+        internal static string StatisticsFrag2 {
+            get {
+                return ResourceManager.GetString("StatisticsFrag2", resourceCulture);
             }
         }
         
@@ -138,15 +363,6 @@ namespace EvenShare.Strings {
         internal static string StatisticsSpendings {
             get {
                 return ResourceManager.GetString("StatisticsSpendings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Balance ähnelt.
-        /// </summary>
-        internal static string StatisticsTitle {
-            get {
-                return ResourceManager.GetString("StatisticsTitle", resourceCulture);
             }
         }
         

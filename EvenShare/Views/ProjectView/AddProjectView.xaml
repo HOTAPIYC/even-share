@@ -2,9 +2,10 @@
 <local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                          xmlns:local="clr-namespace:EvenShare"
+                         xmlns:resources="clr-namespace:EvenShare.Strings"
                          x:Class="EvenShare.AddProjectView"
                          EnableBackButtonOverride="True"
-                         Title="Add a new project">
+                         Title="{x:Static resources:AppResources.PageTitleAddProject}">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -17,17 +18,17 @@
                 Padding="18"
                 Grid.Row="0">
                 <Editor
-                    Placeholder="Enter a project title"
+                    Placeholder="{x:Static resources:AppResources.ProjectTitleInputPh}"
                     FontSize="17"
                     AutoSize="TextChanges"
                     Text="{Binding TitleInput}"/>
                 <Editor
-                    Placeholder="Enter a project member"
+                    Placeholder="{x:Static resources:AppResources.ProjectMemberInputPh}"
                     FontSize="17"
                     AutoSize="TextChanges"
                     Text="{Binding MemberInput}"/>
                 <Button
-                    Text="Add member"
+                    Text="{x:Static resources:AppResources.BtnAddMember}"
                     TextColor="White"
                     BackgroundColor="Purple"             
                     Command="{Binding AddMember}"/>
@@ -40,13 +41,13 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button
-                        Text="Create"
+                        Text="{x:Static resources:AppResources.BtnCreate}"
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="0"
                         Command="{Binding CreateNewProject}"/>
                     <Button
-                        Text="Cancel"
+                        Text="{x:Static resources:AppResources.BtnCancel}"
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="1"
@@ -58,7 +59,7 @@
                     HorizontalOptions="Fill"
                     Margin="0,16,0,8"/>
                 <Label 
-                    Text="Current project members:"
+                    Text="{x:Static resources:AppResources.LabelCurrentMembers}"
                     FontSize="17"
                     Margin="0,0,0,8"/>
                 <ListView 

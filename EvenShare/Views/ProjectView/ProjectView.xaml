@@ -2,13 +2,14 @@
 <local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                          xmlns:local="clr-namespace:EvenShare"
+                         xmlns:resources="clr-namespace:EvenShare.Strings"
                          xmlns:fab="clr-namespace:Refractored.FabControl;assembly=Refractored.FabControl"
                          x:Class="EvenShare.ProjectView"
                          EnableBackButtonOverride="False"
-                         Title="Projects">
+                         Title="{x:Static resources:AppResources.PageTitleProjects}">
     <ContentPage.ToolbarItems>
         <ToolbarItem
-            Text="About"
+            Text="{x:Static resources:AppResources.PageTitleAbout}"
             Order="Secondary"
             Command="{Binding GoToAboutPage}"/>
     </ContentPage.ToolbarItems>

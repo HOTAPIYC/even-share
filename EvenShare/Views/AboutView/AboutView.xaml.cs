@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
+﻿using EvenShare.Strings;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
@@ -15,6 +9,8 @@ namespace EvenShare
         public AboutView()
         {
             InitializeComponent();
+
+            // This is just a static page, no view model here.
 
             if (EnableBackButtonOverride)
             {

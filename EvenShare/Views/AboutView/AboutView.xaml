@@ -5,7 +5,7 @@
                          xmlns:resources="clr-namespace:EvenShare.Strings"
                          x:Class="EvenShare.AboutView"
                          EnableBackButtonOverride="True"
-                         Title="{x:Static resources:AppResources.AboutTitle}">
+                         Title="{x:Static resources:AppResources.PageTitleAbout}">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>

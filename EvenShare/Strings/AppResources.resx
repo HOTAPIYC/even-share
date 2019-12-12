@@ -123,32 +123,101 @@
   <data name="AboutPar2" xml:space="preserve">
     <value>The application was created in a personal attempt to learn building apps with Xamarin - the code is open source and can be viewed and taken from my GitHub repository.</value>
   </data>
-  <data name="AboutTitle" xml:space="preserve">
-    <value>About</value>
-  </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Version 1.0.0</value>
   </data>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="BtnAddMember" xml:space="preserve">
+    <value>Add member</value>
+  </data>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BtnCreate" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="BtnDeleteMember" xml:space="preserve">
+    <value>Delete member</value>
+  </data>
+  <data name="BtnUpdate" xml:space="preserve">
+    <value>Update</value>
+  </data>
   <data name="DialogCancel" xml:space="preserve">
-    <value>CANCEL</value>
-    <comment>Caps lock to match material design guideline.</comment>
+    <value>Cancel</value>
+  </data>
+  <data name="DialogCancelEdit" xml:space="preserve">
+    <value>Do you want to go back without saving any changes?</value>
   </data>
   <data name="DialogDelete" xml:space="preserve">
-    <value>DELETE</value>
-    <comment>Caps lock to match material design guideline.</comment>
+    <value>Delete</value>
+  </data>
+  <data name="DialogDeleteExpense" xml:space="preserve">
+    <value>Do you want to delete this expense?</value>
+  </data>
+  <data name="DialogDeleteMember" xml:space="preserve">
+    <value>Do you want to delete this project member and all connected expenses?</value>
+  </data>
+  <data name="DialogDeleteProject" xml:space="preserve">
+    <value>Do you want to delete this project?</value>
   </data>
   <data name="DialogGoBack" xml:space="preserve">
-    <value>GO BACK</value>
-    <comment>Caps lock to match material design guideline.</comment>
+    <value>Go back</value>
+  </data>
+  <data name="ExpenseAmountInputPh" xml:space="preserve">
+    <value>Enter an amount</value>
+  </data>
+  <data name="ExpenseMemberInputPh" xml:space="preserve">
+    <value>Choose a member</value>
+  </data>
+  <data name="ExpenseNameInputPh" xml:space="preserve">
+    <value>Enter a name</value>
+  </data>
+  <data name="LabelCurrentMembers" xml:space="preserve">
+    <value>Current project members:</value>
+  </data>
+  <data name="PageTitleAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="PageTitleAddExpense" xml:space="preserve">
+    <value>Add a new expense</value>
+  </data>
+  <data name="PageTitleAddProject" xml:space="preserve">
+    <value>Add a new project</value>
+  </data>
+  <data name="PageTitleEditExpense" xml:space="preserve">
+    <value>Edit an expense</value>
+  </data>
+  <data name="PageTitleEditProject" xml:space="preserve">
+    <value>Edit a project</value>
+  </data>
+  <data name="PageTitleExpenses" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="PageTitleProjects" xml:space="preserve">
+    <value>Projects</value>
+  </data>
+  <data name="PageTitleStatistics" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="ProjectMemberInputPh" xml:space="preserve">
+    <value>Enter a project member</value>
+  </data>
+  <data name="ProjectTitleInputPh" xml:space="preserve">
+    <value>Enter a project title</value>
+  </data>
+  <data name="StatisticsFrag1" xml:space="preserve">
+    <value> ows </value>
+  </data>
+  <data name="StatisticsFrag2" xml:space="preserve">
+    <value> to </value>
   </data>
   <data name="StatisticsShares" xml:space="preserve">
     <value>Even shares</value>
   </data>
   <data name="StatisticsSpendings" xml:space="preserve">
     <value>Individual spendings</value>
-  </data>
-  <data name="StatisticsTitle" xml:space="preserve">
-    <value>Balance</value>
   </data>
   <data name="StatisticsTotal" xml:space="preserve">
     <value>Total</value>

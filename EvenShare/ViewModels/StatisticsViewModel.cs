@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EvenShare.Strings;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
@@ -108,7 +109,12 @@ namespace EvenShare
                 if (diff == 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(debitor.DiffToEvenShare)) / 100;
-                    shares.Add(debitor.Name + " ows " + debt.ToString().Replace(",", ".") + " to " + creditor.Name);
+                    shares.Add(
+                        debitor.Name 
+                        + AppResources.StatisticsFrag1
+                        + debt.ToString().Replace(",", ".") 
+                        + AppResources.StatisticsFrag2
+                        + creditor.Name);
 
                     debitors.Remove(debitor);
                     creditors.Remove(creditor);
@@ -116,7 +122,12 @@ namespace EvenShare
                 if (diff > 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(debitor.DiffToEvenShare)) / 100;
-                    shares.Add(debitor.Name + " ows " + debt.ToString().Replace(",", ".") + " to " + creditor.Name);
+                    shares.Add(
+                        debitor.Name 
+                        + AppResources.StatisticsFrag1 
+                        + debt.ToString().Replace(",", ".") 
+                        + AppResources.StatisticsFrag2
+                        + creditor.Name);
 
                     creditor.DiffToEvenShare = creditor.DiffToEvenShare + debitor.DiffToEvenShare;
 
@@ -127,7 +138,12 @@ namespace EvenShare
                 if (diff < 0)
                 {
                     var debt = Math.Abs(Convert.ToDecimal(creditor.DiffToEvenShare)) / 100;
-                    shares.Add(debitor.Name + " ows " + debt.ToString().Replace(",", ".") + " to " + creditor.Name);
+                    shares.Add(
+                        debitor.Name 
+                        + AppResources.StatisticsFrag1
+                        + debt.ToString().Replace(",", ".") 
+                        + AppResources.StatisticsFrag2
+                        + creditor.Name);
 
                     debitor.DiffToEvenShare = debitor.DiffToEvenShare + creditor.DiffToEvenShare;
 

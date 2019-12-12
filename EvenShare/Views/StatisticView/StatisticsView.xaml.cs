@@ -27,6 +27,8 @@ namespace EvenShare
                 CustomBackButtonAction = () => { GoBack(); };
             }
 
+            // Make sure view model is fully loaded,
+            // as this view model is also used by the sub pages.
             Task.Run(async () => { await _viewModel.Init(); }).Wait();
 
             foreach (string textline in _viewModel.IndividualTotals)
