@@ -2,21 +2,22 @@
 <local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                          xmlns:local="clr-namespace:EvenShare"
+                         xmlns:resources="clr-namespace:EvenShare.Strings"
                          x:Class="EvenShare.StatisticsView"
                          EnableBackButtonOverride="True"
-                         Title="Balance">
+                         Title="{x:Static resources:AppResources.PageTitleStatistics}">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="48"/>
             </Grid.RowDefinitions>
-            <!--Main Content-->
+            <!--Main content-->
             <ScrollView Grid.Row="0">
                 <StackLayout>
                     <StackLayout Margin="18,16,18,0">
                         <Label 
-                            Text="Total"
+                            Text="{x:Static resources:AppResources.StatisticsTotal}"
                             FontSize="22"
                             FontAttributes="Bold"
                             Margin="0,0,0,5"/>
@@ -31,7 +32,7 @@
                             HeightRequest="1" 
                             Color="DarkGray"/>
                         <Label 
-                            Text="Individual spendings"
+                            Text="{x:Static resources:AppResources.StatisticsSpendings}"
                             FontSize="22"
                             FontAttributes="Bold"
                             Margin="0,0,0,5"/>
@@ -43,7 +44,7 @@
                             HeightRequest="1" 
                             Color="DarkGray"/>
                         <Label 
-                            Text="Even shares"
+                            Text="{x:Static resources:AppResources.StatisticsShares}"
                             FontSize="22"
                             FontAttributes="Bold"
                             Margin="0,0,0,5"/>

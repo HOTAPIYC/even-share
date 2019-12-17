@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using EvenShare.Strings;
+using System.Threading.Tasks;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
@@ -17,12 +17,18 @@ namespace EvenShare
 
             BindingContext = _viewModel;
 
+            // Make sure view model is fully loaded,
+            // as this view model is also used by the sub pages.
             Task.Run(async () => { await _viewModel.Init(); }).Wait();
         }
 
         private async void DeleteRequest(object sender, System.EventArgs e)
         {
-            var answer = await DisplayAlert("", "Do you want to delete this project?", "DELETE", "CANCEL");
+            var answer = await DisplayAlert(
+                "", 
+                AppResources.DialogDeleteProject, 
+                AppResources.DialogDelete, 
+                AppResources.DialogCancel);
 
             if (answer && _viewModel.DeleteProject.CanExecute(null))
             {

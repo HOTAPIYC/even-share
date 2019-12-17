@@ -2,9 +2,10 @@
 <local:CustomContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                          xmlns:local="clr-namespace:EvenShare"
+                         xmlns:resources="clr-namespace:EvenShare.Strings"
                          x:Class="EvenShare.AddExpenseView"
                          EnableBackButtonOverride="True"
-                         Title="Add a new expense">
+                         Title="{x:Static resources:AppResources.PageTitleAddExpense}">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -17,15 +18,15 @@
                 Padding="18"
                 Grid.Row="0">
                 <Editor
-                    Placeholder="Enter a name"
+                    Placeholder="{x:Static resources:AppResources.ExpenseNameInputPh}"
                     FontSize="17"
                     Text="{Binding TitleInput}"/>
                 <Editor                
-                    Placeholder="Enter an amount"
+                    Placeholder="{x:Static resources:AppResources.ExpenseAmountInputPh}"
                     FontSize="17"
                     Text="{Binding AmountInput}"/>
                 <Picker
-                    Title="Choose a member"
+                    Title="{x:Static resources:AppResources.ExpenseMemberInputPh}"
                     FontSize="17"
                     ItemsSource="{Binding MemberList}"
                     SelectedIndex="{Binding SelectedIndexMember}"/>
@@ -38,13 +39,13 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Button
-                        Text="Add"
+                        Text="{x:Static resources:AppResources.BtnAdd}"
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="0"
                         Command="{Binding CreateNewExpense}"/>
                     <Button
-                        Text="Cancel"
+                        Text="{x:Static resources:AppResources.BtnCancel}"
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="1"

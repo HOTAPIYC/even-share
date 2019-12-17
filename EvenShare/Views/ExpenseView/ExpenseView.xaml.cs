@@ -1,5 +1,5 @@
-﻿using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using EvenShare.Strings;
+using System.Threading.Tasks;
 using Xamarin.Forms.Xaml;
 
 namespace EvenShare
@@ -22,6 +22,8 @@ namespace EvenShare
                 CustomBackButtonAction = () => { GoBack(); };
             }
 
+            // Make sure view model is fully loaded,
+            // as this view model is also used by the sub pages.
             Task.Run(async () => { await _viewModel.Init(); }).Wait();
         }
 
@@ -32,11 +34,15 @@ namespace EvenShare
 
         private async void DeleteRequest(object sender, System.EventArgs e)
         {
-            var answer = await DisplayAlert("", "Do you want to delete this expense?", "DELETE", "CANCEL");
+            var answer = await DisplayAlert(
+                "",
+                AppResources.DialogDeleteExpense,
+                AppResources.DialogDelete,
+                AppResources.DialogCancel);
 
-            if (answer)
+            if (answer && _viewModel.DeleteExpense.CanExecute(null))
             {
-                MessagingCenter.Send(this, "DeleteExpense");
+                _viewModel.DeleteExpense.Execute(null);
             }
         }
     }
