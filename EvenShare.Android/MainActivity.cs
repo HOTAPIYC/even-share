@@ -22,11 +22,12 @@ namespace EvenShare.Droid
 
             LoadApplication(new App());
 
-            // this needs to be added to make sure the 
+            // This needs to be added to make sure the 
             // OnOptionsItemSelected is called
             Android.Support.V7.Widget.Toolbar toolbar
                 = this.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
+            SupportActionBar.SetHomeButtonEnabled(true);
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

@@ -26,6 +26,9 @@
                     <Label
                         Text="{x:Static resources:AppResources.AboutPar2}"
                         FontSize="17"/>
+                    <Label
+                        Text="{x:Static resources:AppResources.AboutPar3}"
+                        FontSize="17"/>
                 </StackLayout>
             </ScrollView>
             <!--Bottom bar-->

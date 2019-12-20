@@ -70,11 +70,20 @@ namespace EvenShare.Strings {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die The application was created in a personal attempt to learn building apps with Xamarin - the code is open source and can be viewed and taken from my GitHub repository. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die The application was created in a personal attempt to learn building apps with Xamarin - the code is open source and can be viewed and taken from GitHub. ähnelt.
         /// </summary>
         internal static string AboutPar2 {
             get {
                 return ResourceManager.GetString("AboutPar2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die The splash screen vector image was created by pikisuperstar and can be found on www.freepik.com. ähnelt.
+        /// </summary>
+        internal static string AboutPar3 {
+            get {
+                return ResourceManager.GetString("AboutPar3", resourceCulture);
             }
         }
         

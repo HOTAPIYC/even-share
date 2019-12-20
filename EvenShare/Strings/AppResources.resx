@@ -121,7 +121,10 @@
     <value>This is a simple app to keep track of who ows whom how much when people put money together to do something.</value>
   </data>
   <data name="AboutPar2" xml:space="preserve">
-    <value>The application was created in a personal attempt to learn building apps with Xamarin - the code is open source and can be viewed and taken from my GitHub repository.</value>
+    <value>The application was created in a personal attempt to learn building apps with Xamarin - the code is open source and can be viewed and taken from GitHub.</value>
+  </data>
+  <data name="AboutPar3" xml:space="preserve">
+    <value>The splash screen vector image was created by pikisuperstar and can be found on www.freepik.com.</value>
   </data>
   <data name="AboutVersion" xml:space="preserve">
     <value>Version 1.0.0</value>
