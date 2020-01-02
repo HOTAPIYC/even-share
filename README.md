@@ -2,11 +2,11 @@
 
 ### Description
 
-This is a simple cross-platform app for calculating who ows whom how much when people put money together for doing something. You can start a project, add participants and then enter spendings. Hit a button at any time to create an overview, showing the current status in dept and credit. Every item and project can be edited.
+This is a simple cross-platform app for calculating who ows whom how much when people put money together for doing something. You can start a project, add participants and then enter spendings. Hit a button at any time to create an overview, showing the current status in debt and credit. Every item and project can be edited.
 
 ![Screenshot](/Images/Screen_compilation.jpg)
 
-I started this project to learn more about app development for the Android platform, using various online resources. I chose Xamarin as a framework to make use of already existing .NET skills. Initially I planed to make this app available as a native Windows (UWP) application aswell, however after discovering how poorly this feature is currently supported by Xarmarin, I abandoned this plan.
+I started this project to learn more about app development for the Android platform, using various online resources. I chose Xamarin as a framework to make use of already existing .NET skills. Initially I planed to make this app available as a native Windows (UWP) application aswell, however after discovering how poorly this feature is currently supported by Xarmarin, I abandoned this plan. Feel free to clone this repository and add features you think are missing!
 
 ### Links
 
