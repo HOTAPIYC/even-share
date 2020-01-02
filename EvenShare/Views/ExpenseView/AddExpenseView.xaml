@@ -49,7 +49,7 @@
                         TextColor="White"
                         BackgroundColor="Purple"
                         Grid.Column="1"
-                        Command="{Binding GoToExpenses}"/>
+                        Clicked="Cancel"/>
                 </Grid>
             </StackLayout>
             <!--Bottom bar-->
